@@ -19,10 +19,10 @@ def add(a, b):
 def subtract(a, b):
     return a - b
 
-def mul(a, b):
+def multiply(a, b):
     return a * b
 
-def div(a, b):
+def divide(a, b):
     try:
         return b / a
     except ZeroDivisionError:
@@ -34,7 +34,7 @@ def logarithm(a, b):
     except ValueError:
         raise ValueError("Invalid input.")
 
-def exp(a, b): return a**b
+def exponent(a, b): return a**b
 
 
 def square_root(a):

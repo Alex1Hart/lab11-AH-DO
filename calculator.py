@@ -1,3 +1,9 @@
+# https://github.com/Alex1Hart/lab11-AH-DO
+# Partner 1: Alexander Hart
+# Partner 2: Diego Ortiz
+
+
+
 """
 calculator.py
 - Defines functions used to create a simple calculator

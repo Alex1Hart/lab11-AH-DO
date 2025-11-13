@@ -35,6 +35,10 @@ class TestCalculator(unittest.TestCase):
         with self.assertRaises(ZeroDivisionError):
             logarithm(10, 1)
 
+    def test_divide_by_zero(self):
+        # Assumes your divide function catches the error and returns None
+        self.assertIsNone(div(0, 5))
+
     def test_log_invalid_argument(self):  # 1 assertion
         with self.assertRaises(ValueError):
             logarithm(-5, 10)

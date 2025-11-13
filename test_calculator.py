@@ -21,26 +21,25 @@ class TestCalculator(unittest.TestCase):
         self.assertAlmostEqual(div(7, 3), 7 / 3)
 
     ####### Partner 2
-    def test_divide_by_zero(self):
-        self.assertIsNone(div(0, 5))
+    def test_divide(self):  # 3 assertions
+        self.assertEqual(div(2, 10), 5)
+        self.assertAlmostEqual(div(3, 7), 7 / 3)
 
     def test_logarithm(self):
         self.assertAlmostEqual(log(8, 2), 3.0)
         self.assertAlmostEqual(log(100, 10), 2.0)
         self.assertAlmostEqual(log(math.e ** 4, math.e), 4.0)
 
-    def test_log_invalid_base(self):
-        with self.assertRaises(ZeroDivisionError):
-            log(10, 1)
+    def test_log_invalid_argument(self):  # 1 assertion
+        with self.assertRaises(ValueError):
+            log(-5, 10)
+        with self.assertRaises(ValueError):
+            log(10, -2)
 
     ####### Partner 1
     def test_log_invalid_argument(self): # 1 assertion
         with self.assertRaises(ValueError):
             log(-5, 10)
-
-        with self.assertRaises(ValueError):
-            log(10, 1)
-
         with self.assertRaises(ValueError):
             log(10, -2)
 

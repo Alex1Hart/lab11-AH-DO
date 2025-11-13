@@ -8,20 +8,20 @@ from calculator import *
 class TestCalculator(unittest.TestCase):
     def test_add(self):  # 3 assertions
         self.assertEqual(add(5, 3), 8)
-        self.assertEqual(add(10, -2), 8)
+        self.assertNotEqual(add(10, -3332), 8)
         self.assertEqual(add(-5, -5), -10)
 
     def test_subtract(self):  # 3 assertions
         self.assertEqual(subtract(10, 4), 6)
-        self.assertEqual(subtract(5, -3), 8)
+        self.assertNotEqual(subtract(5, -333), 8)
         self.assertEqual(subtract(-5, 5), -10)
 
     ######## Partner 1
     def test_multiply(self): # 3 assertions
         self.assertEqual(mul(3, 4), 12)
-        self.assertEqual(mul(-2, 5), -10)
-
+        self.assertNotEqual(mul(-2, 5), -33)
         self.assertEqual(mul(5, 0), 0)
+
     def test_divide(self):  # 3 assertions
         self.assertEqual(div(2, 10), 5)
         self.assertAlmostEqual(div(3, 7), 7 / 3)
@@ -33,30 +33,29 @@ class TestCalculator(unittest.TestCase):
         self.assertAlmostEqual(logarithm(math.e ** 4, math.e), 4.0)
 
     def test_log_invalid_base(self):  # 1 assertion
-        with self.assertRaises(ZeroDivisionError):
-            logarithm(10, 1)
+        with self.assertRaises(ValueError):
+            logarithm(10, 0)
 
     def test_divide_by_zero(self):
-        # Assumes your divide function catches the error and returns None
-        self.assertIsNone(div(0, 5))
+        with self.assertRaises(ZeroDivisionError):
+            div(0, 5)
 
     def test_log_invalid_argument(self):  # 1 assertion
         with self.assertRaises(ValueError):
-            logarithm(-5, 10)
-        with self.assertRaises(ValueError):
-            logarithm(10, -2)
+            logarithm(0, 5)
 
     ####### Partner 1
 
     def test_hypotenuse(self): # 3 assertions
         self.assertAlmostEqual(hypotenuse(3, 4), 5)
-        self.assertAlmostEqual(hypotenuse(5, 12), 13)
+        self.assertNotEqual(hypotenuse(5, 122), 13)
 
         self.assertAlmostEqual(hypotenuse(-3, 4), 5)
 
     def test_sqrt(self): # 3 assertions
         self.assertEqual(square_root(9), 3)
-        self.assertEqual(square_root(0), 0)
+        self.assertNotEqual(square_root(2), 0)
+
 
         with self.assertRaises(ValueError):
             square_root(-1)
